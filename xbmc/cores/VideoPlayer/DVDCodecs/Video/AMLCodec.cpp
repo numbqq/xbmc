@@ -1871,6 +1871,11 @@ void CAMLCodec::Reset()
   m_dll->codec_reset(&am_private->vcodec);
   m_dll->codec_set_video_delay_limited_ms(&am_private->vcodec, 1000);
 
+  // clear fb0/osd0
+  SysfsUtils::SetInt("/sys/class/graphics/fb0/blank", 1);
+  SysfsUtils::SetInt("/sys/class/graphics/fb0/osd_clear", 1);
+  SysfsUtils::SetInt("/sys/class/graphics/fb0/blank", 0);
+
   dumpfile_close(am_private);
   dumpfile_open(am_private);
 
