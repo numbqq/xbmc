@@ -44,7 +44,7 @@
 
 // amcodec include
 extern "C" {
-#include <amcodec/codec.h>
+#include <codec.h>
 }  // extern "C"
 
 CEvent g_aml_sync_event;
