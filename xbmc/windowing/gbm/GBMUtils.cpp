@@ -43,14 +43,14 @@ bool CGBMUtils::CreateSurface(int width, int height, uint32_t format, const uint
   if (m_surface)
     CLog::Log(LOGWARNING, "CGBMUtils::%s - surface already created", __FUNCTION__);
 
-#if defined(HAS_GBM_MODIFIERS)
+/*#if defined(HAS_GBM_MODIFIERS)
   m_surface = gbm_surface_create_with_modifiers(m_device,
                                                 width,
                                                 height,
                                                 format,
                                                 modifiers,
                                                 modifiers_count);
-#endif
+#endif*/
   if (!m_surface)
   {
     m_surface = gbm_surface_create(m_device,

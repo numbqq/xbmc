@@ -31,32 +31,32 @@ find_package_handle_standard_args(GBM
 
 include(CheckCSourceCompiles)
 set(CMAKE_REQUIRED_LIBRARIES ${GBM_LIBRARY})
-check_c_source_compiles("#include <gbm.h>
-
-                         int main()
-                         {
-                           gbm_bo_map(NULL, 0, 0, 0, 0, GBM_BO_TRANSFER_WRITE, NULL, NULL);
-                         }
-                         " GBM_HAS_BO_MAP)
-
-check_c_source_compiles("#include <gbm.h>
-
-                         int main()
-                         {
-                           gbm_surface_create_with_modifiers(NULL, 0, 0, 0, NULL, 0);
-                         }
-                         " GBM_HAS_MODIFIERS)
+#check_c_source_compiles("#include <gbm.h>
+#
+#                         int main()
+#                         {
+#                           gbm_bo_map(NULL, 0, 0, 0, 0, GBM_BO_TRANSFER_WRITE, NULL, NULL);
+#                         }
+#                         " GBM_HAS_BO_MAP)
+#
+#check_c_source_compiles("#include <gbm.h>
+#
+#                         int main()
+#                         {
+#                           gbm_surface_create_with_modifiers(NULL, 0, 0, 0, NULL, 0);
+#                         }
+#                         " GBM_HAS_MODIFIERS)
 
 if(GBM_FOUND)
   set(GBM_LIBRARIES ${GBM_LIBRARY})
   set(GBM_INCLUDE_DIRS ${GBM_INCLUDE_DIR})
   set(GBM_DEFINITIONS -DHAVE_GBM=1)
-  if(GBM_HAS_BO_MAP)
-    list(APPEND GBM_DEFINITIONS -DHAS_GBM_BO_MAP=1)
-  endif()
-  if(GBM_HAS_MODIFIERS)
-    list(APPEND GBM_DEFINITIONS -DHAS_GBM_MODIFIERS=1)
-  endif()
+  #  if(GBM_HAS_BO_MAP)
+  #    list(APPEND GBM_DEFINITIONS -DHAS_GBM_BO_MAP=1)
+  #  endif()
+  #  if(GBM_HAS_MODIFIERS)
+  #    list(APPEND GBM_DEFINITIONS -DHAS_GBM_MODIFIERS=1)
+  #  endif()
   if(NOT TARGET GBM::GBM)
     add_library(GBM::GBM UNKNOWN IMPORTED)
     set_target_properties(GBM::GBM PROPERTIES

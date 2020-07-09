@@ -35,9 +35,9 @@ CRPBaseRenderer *CRendererFactoryGBM::CreateRenderer(const CRenderSettings &sett
 RenderBufferPoolVector CRendererFactoryGBM::CreateBufferPools(CRenderContext &context)
 {
   return {
-#if defined(HAS_GBM_BO_MAP)
+/*#if defined(HAS_GBM_BO_MAP)
     std::make_shared<CRenderBufferPoolGBM>(context)
-#endif
+#endif*/
   };
 }
 

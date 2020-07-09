@@ -82,9 +82,9 @@ int CGBMBufferObject::GetStride()
 
 uint64_t CGBMBufferObject::GetModifier()
 {
-#if defined(HAS_GBM_MODIFIERS)
+/*#if defined(HAS_GBM_MODIFIERS)
   return gbm_bo_get_modifier(m_bo);
-#else
+#else*/
   return 0;
-#endif
+/*#endif*/
 }

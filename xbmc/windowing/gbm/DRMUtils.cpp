@@ -105,7 +105,7 @@ drm_fb * CDRMUtils::DrmFbGetFromBo(struct gbm_bo *bo)
   width = gbm_bo_get_width(bo);
   height = gbm_bo_get_height(bo);
 
-#if defined(HAS_GBM_MODIFIERS)
+/*#if defined(HAS_GBM_MODIFIERS)
   for (int i = 0; i < gbm_bo_get_plane_count(bo); i++)
   {
     handles[i] = gbm_bo_get_handle_for_plane(bo, i).u32;
@@ -113,11 +113,11 @@ drm_fb * CDRMUtils::DrmFbGetFromBo(struct gbm_bo *bo)
     offsets[i] = gbm_bo_get_offset(bo, i);
     modifiers[i] = gbm_bo_get_modifier(bo);
   }
-#else
+#else*/
   handles[0] = gbm_bo_get_handle(bo).u32;
   strides[0] = gbm_bo_get_stride(bo);
   memset(offsets, 0, 16);
-#endif
+/*#endif*/
 
   uint32_t flags = 0;
 
