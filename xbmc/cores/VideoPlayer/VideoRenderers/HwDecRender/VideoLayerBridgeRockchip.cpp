@@ -51,7 +51,7 @@ void CVideoLayerBridgeRockchip::Configure(IVideoBufferDRMPRIME* buffer)
 {
   AVDRMFrameDescriptor* descriptor = buffer->GetDescriptor();
   AVDRMLayerDescriptor* layer = &descriptor->layers[0];
-  bool is10bit = layer->format == DRM_FORMAT_NV12;
+  bool is10bit = layer->format == DRM_FORMAT_NV12_10;
   AVFrame* frame = dynamic_cast<CVideoBufferDRMPRIME*>(buffer)->GetFrame();
 
   m_hdr_metadata.type = HDMI_STATIC_METADATA_TYPE1;
